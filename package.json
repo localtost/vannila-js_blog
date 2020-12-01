@@ -1,0 +1,9 @@
+{
+  "name": "post",
+  "version": "1.0.0",
+  "description": "create posts using vanila js",
+  "main": "index.js",
+  "repository": "https://github.com/hotSurface/vanila-js.git",
+  "author": "Artem Kumskov",
+  "license": "MIT"
+}
