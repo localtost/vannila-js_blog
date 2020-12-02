@@ -1,32 +1,32 @@
 export default class Form {
 
-    constructor(element ,fields) {
-        this.element = element;
+    constructor($element ,fields) {
+        this.$element = $element;
         this.fields = fields;
     }
     values () {
         const obj = {};
         Object.keys(this.fields).forEach(field=>{
-            obj[field]=this.element[field].value
+            obj[field]=this.$element[field].value
         })
         return obj;
     }
     isValid () {
         let isFormValid = true;
-        Object.keys(this.fields).forEach(field=>{
-            const validators  = this.fields[field]
+        Object.keys(this.fields).forEach(name=>{
+            const validators  = this.fields[name]
             let isValidField  = true;
             validators.forEach(callback =>{
-                isValidField = callback(this.element[field].value) && isValidField
+                isValidField = callback(this.$element[name].value) && isValidField
             })
-            !isValidField ? setError(this.element[field]) : clearError(this.element[field])
+            !isValidField ? setError(this.$element[name]) : clearError(this.$element[name])
             isFormValid = isFormValid && isValidField
         })
         return isFormValid
     }
     clearForm () {
         Object.keys(this.fields).forEach(field=>{
-            this.element[field].value = ''
+            this.$element[field].value = ''
         })
     }
 
