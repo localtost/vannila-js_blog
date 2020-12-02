@@ -11,6 +11,6 @@ export  default  class Component {
     }
 
     show () {
-        this.$el.classList.remove('hide')
+      this.$el.classList.remove('hide')
     }
 }
