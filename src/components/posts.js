@@ -28,7 +28,8 @@ function renderPosts (post){
     const tag = post.type==='news'?
         ` <li class="tag tag-blue tag-rounded">Новость</li>`:
         ` <li class="tag tag-rounded">Заметка</li>`;
-    const button = !(JSON.parse(localStorage.getItem('favorites')) || []).includes(post.id)
+    const button =
+        !(JSON.parse(localStorage.getItem('favorites')) || []).find(el=>el.id===post.id)
         ? `<button data-id="${post.id}" data-name="${post.title}" class="button-round button-small button-primary">Сохранить</button>`:
         `<button data-id="${post.id}"  data-name="${post.title}" class="button-round button-small button-danger">Удалить</button>`
    return `<div class="panel">
